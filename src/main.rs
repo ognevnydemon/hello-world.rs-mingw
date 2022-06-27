@@ -336,6 +336,7 @@ fn main() {
         #[cfg(test)]
             mod tests {
                 use super::*;
+                use r_i18n::I18n;
 
         #[test]
         fn solarsystem_level_enterprise_test() {
