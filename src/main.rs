@@ -5,7 +5,6 @@
             #![allow(unreachable_code)]
                                                                                                                     #![allow(unused_braces, unused_must_use, unused_parens)]
                                                 #![recursion_limit = "256"]
-extern crate r_i18n;
                                                                                                 use std::io::{Write, Error};
                     use std::marker::PhantomData;
 use french_numbers::*; use get_shell::{get_shell,Shell::*};
@@ -336,6 +335,7 @@ fn main() {
         #[cfg(test)]
             mod tests {
                 use super::*;
+                use r_i18n::I18n;
 
         #[test]
         fn solarsystem_level_enterprise_test() {
