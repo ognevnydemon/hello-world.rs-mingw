@@ -5,13 +5,12 @@
             #![allow(unreachable_code)]
                                                                                                                     #![allow(unused_braces, unused_must_use, unused_parens)]
                                                 #![recursion_limit = "256"]
-extern crate r_i18n;
                                                                                                 use std::io::{Write, Error};
                     use std::marker::PhantomData;
 use french_numbers::*; use get_shell::{get_shell,Shell::*};
 
     /// These constants are to avoid magic strings/values.
-    const LANGUAGE_LOCALES: &[&str] = &["en", "es", "bg", "bn", "de", "eo", "fr", "gr", "hi", "ie", "jp", "kr", "la", "lt", "nl", "no", "pl", "pt", "ro", "ru", "sk", "tr", "zh", "cs", "it"];
+    const LANGUAGE_LOCALES: &[&str] = &["en", "es", "bg", "bn", "de", "eo", "fr", "gr", "hi", "hr", "hu", "id", "ie", "jp", "kr", "kz", "la", "lt", "nl", "no", "pl", "pt", "ro", "ru", "sk", "tr", "zh", "cs", "it", "uk", "ar"];
     const LANGUAGES_DIRECTORY: &str = "translations";
     const MSG: &str = "msg";
 
@@ -260,8 +259,7 @@ MakeMsgWriterForMsgWriterCallerAndErrorHandler<
                                             Zsh=>{
 msg = msg;
                                 } _ => {
-                     msg_string.push_str( "\n");
-                    msg = &msg_string;
+                                            panic!("Oh dear, your shell is UNSAFE!\n But don't worry, Rust is so safe, it'll quit immediately!");
                             }
                                     }
                                 let msg = String::from(msg);
@@ -337,6 +335,7 @@ fn main() {
         #[cfg(test)]
             mod tests {
                 use super::*;
+                use r_i18n::I18n;
 
         #[test]
         fn solarsystem_level_enterprise_test() {
