@@ -1,5 +1,7 @@
 use std::{fs, env, path::PathBuf};
 
+use aho_corasick::AhoCorasick;
+
 fn main() {
     println!("cargo:rerun-if-changed=hello-world.rs.rc");
     println!("cargo:rerun-if-changed=hello-world.rs.exe.manifest");
@@ -15,9 +17,13 @@ fn main() {
         let mut version = env::var("CARGO_PKG_VERSION").unwrap();
         let last_dot = version.rfind(".").unwrap();
         version.insert_str(last_dot, ".0"); // windows style
-        let modified_manifest = manifest_template.replace("__VERSION__", &version).replace("__ARCHITECTURE__", arch);
+        let with_commas = version.replace(".", ",");
+        let debug_mode = env::var("DEBUG").unwrap();
+        let matcher = AhoCorasick::new(["__VERSION__", "__VERSION_WITH_COMMAS__", "__ARCHITECTURE__", "__DEBUG__"]);
+        let replacements = [&version, &with_commas, arch, &debug_mode];
+        let modified_manifest = matcher.replace_all(&manifest_template, &replacements);
         let rc_template = fs::read_to_string("hello-world.rs.rc").unwrap();
-        let modified_rc = rc_template.replace("__VERSION__", &version).replace("__VERSION_WITH_COMMAS__", &version.replace(".", ",")).replace("__RELEASE__", &env::var("DEBUG").unwrap());
+        let modified_rc = matcher.replace_all(&rc_template, &replacements);
         let out_dir = PathBuf::from(env::var_os("OUT_DIR").unwrap());
         fs::write(out_dir.join("hello-world.rs.exe.manifest"), modified_manifest).unwrap();
         fs::write(out_dir.join("hello-world.rs.rc"), modified_rc).unwrap();

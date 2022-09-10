@@ -97,3 +97,4 @@ yubico            = "0.10.0"
 
 [build-dependencies]
 embed-resource    = "1.7.3"
+aho-corasick      = "0.7.19"
