@@ -13,7 +13,7 @@
         <asmv3:windowsSettings xmlns="http://schemas.microsoft.com/SMI/2019/WindowsSettings">
             <!-- Use UTF-8 code page -->
             <activeCodePage>UTF-8</activeCodePage>
-            <!--- Use the segmented heap for greater performance (?) -->
+            <!--- Use the segmented heap for greater performance (🚀) -->
             <heapType>SegmentHeap</heapType>
         </asmv3:windowsSettings>
     </asmv3:application>
