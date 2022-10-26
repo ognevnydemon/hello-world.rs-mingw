@@ -3639,6 +3639,7 @@ dependencies = [
  "reqwest",
  "ring",
  "rmpv",
+ "safe-macro",
  "security",
  "serde",
  "serde_json",
@@ -6975,6 +6976,12 @@ name = "ryu"
 version = "1.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f3f6f92acf49d1b98f7a81226834412ada05458b7364277387724a237f062695"
+
+[[package]]
+name = "safe-macro"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "128f6318b161afb9c006818b84c6bf9a6085849a1cb1b577d262bb2ad188e4c1"
 
 [[package]]
 name = "safemem"
