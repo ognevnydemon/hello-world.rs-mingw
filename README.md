@@ -26,8 +26,7 @@ To compile this project you need only one library 🚀:
 
 You probably have most of them already, if it says something along the words, you know what to search for now
 
-Then you can just `make` and the compiled executable should be located in `./target/release/hello-world` run it or install it with `make install`
-.
+Then you can just `make` and the compiled executable should be located in `./target/release/hello-world` run it or install it with `make install`.
 
 Due to the lightweightness of rust(🚀), unlike node_modules being fairly large for few dependencies, rust(🚀) manages compile caches efficiently and stores them to storage to save compile times! Just **33G** target folder, the compile time is only around **2 hours and 30 minutes** on my mac on release mode
 
