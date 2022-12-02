@@ -5,13 +5,14 @@ all:
 	@sleep 5
 	@cargo build --release
 
+clean: ./target
+	@rm -rf -- target
+ 
+install: ./target/release/hello-world
+	@install -Dm755 -- ./target/release/hello-world $(DESTDIR)$(PREFIX)/bin
 
-install:
-	@cp target/release/hello-world $(DESTDIR)$(PREFIX)/bin/hello-world
-	@chmod 755 $(DESTDIR)$(PREFIX)/bin/hello-world
-
-uninstall:
-	@rm -f $(DESTDIR)$(PREFIX)/bin/hello-world
+uninstall: $(DESTDIR)$(PREFIX)/bin/hello-world
+	@rm -- $(DESTDIR)$(PREFIX)/bin/hello-world
 
 test: tests
 
