@@ -1,6 +1,6 @@
 pkgname='hello-world-git'
 _pkgname='hello-world.rs'
-pkgver=0.1.0.r344.e17db4b
+pkgver=0.1.0.r354.75cb3dc
 pkgrel=1
 arch=(x86_64 i686 pentium4 armv6h armv7h aarch64)
 url="https://github.com/mTvare6/hello-world.rs"
@@ -26,7 +26,7 @@ build() {
 package() {
 	cd "$_pkgname"
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
-	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -Dm644 LICENSE.rs "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 	install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
 }
 # vim:set ts=4 sw=4 noet:
