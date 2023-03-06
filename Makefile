@@ -9,7 +9,7 @@ clean: ./target
 	@rm -rf -- target
  
 install: ./target/release/hello-world
-	@install -Dm755 -- ./target/release/hello-world $(DESTDIR)$(PREFIX)/bin
+	@install -Dm755 -- ./target/release/hello-world $(DESTDIR)$(PREFIX)/bin/hello-world
 
 uninstall: $(DESTDIR)$(PREFIX)/bin/hello-world
 	@rm -- $(DESTDIR)$(PREFIX)/bin/hello-world
