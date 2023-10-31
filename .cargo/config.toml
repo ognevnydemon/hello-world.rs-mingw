@@ -1,2 +1,8 @@
 [target.'cfg(windows)']
 rustflags = ["-Ctarget-feature=+crt-static"]
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
